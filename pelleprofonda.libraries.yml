@@ -1,0 +1,8 @@
+global-styling:
+  css:
+    theme:
+      dist/css/style.min.css: { minified: true }
+
+global-scripts:
+  js:
+    dist/js/main.min.js: { minified: true }

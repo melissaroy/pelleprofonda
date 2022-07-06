@@ -1,0 +1,19 @@
+/**
+ * Utilities.
+ *
+ * Utilities are for creating new class selectors to use in the DOM.
+ *
+ * See https://github.com/twbs/bootstrap/tree/v4-dev/scss/utilities for examples.
+ *
+ * Include all files found under the utilities/ directory.
+ */
+
+@import "background";
+
+$utilities: (
+  "accessible-background-font-colour": (
+    property: color,
+    class: bg,
+    values: map-loop($utilities-theme-colors, color-contrast, "$value"),
+  ),
+);

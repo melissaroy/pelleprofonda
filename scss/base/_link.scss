@@ -1,0 +1,106 @@
+/**
+ * Link base styles.
+ */
+
+@use "sass:map";
+
+a {
+  // A list of file types to apply the download icon to.
+  $document-extensions: (
+    "pdf",
+    "doc",
+    "xls",
+    "txt",
+    "docx",
+    "xlsx",
+    "ppt",
+    "pptx"
+  );
+
+  // All links should have the material-icons class applied to either ::before or ::after.
+  &:not(.link-external)::before,
+  &:not([target="_blank"])::before,
+  &.link-external::after,
+  &[target="_blank"]::after {
+    @include material-icons();
+
+    vertical-align: bottom;
+  }
+
+  // All basic links.
+  &::before {
+    margin-right: map.get($spacers, 1);
+  }
+
+  // Phone links.
+  &.link-phone::before,
+  &[href^="tel:"]::before {
+    content: "call";
+    transform: none;
+  }
+
+  // Fax links.
+  &.link-fax::before,
+  &[href^="fax:"]::before {
+    content: "print";
+    transform: none;
+  }
+
+  // Email links.
+  &.link-email::before,
+  &[href^="mailto:"]::before {
+    content: "mail_outline";
+    transform: none;
+  }
+
+  // Download links.
+  &.link-download::before {
+    content: "get_app";
+    transform: none;
+  }
+
+  @each $extension in $document-extensions {
+    &[href$=".#{$extension}"]::before {
+      content: "get_app";
+      transform: none;
+    }
+  }
+
+  // External links.
+  &.link-external,
+  &[target="_blank"] {
+    &::before {
+      content: none;
+      margin-right: 0;
+    }
+
+    &::after {
+      content: "open_in_new";
+      margin-left: map.get($spacers, 1);
+    }
+  }
+
+  // A class to apply when the links should have no icon at all.
+  &.no-icon {
+    text-decoration: underline;
+
+    &::before,
+    &::after {
+      content: "";
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &.btn {
+      text-decoration: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration-thickness: 3px;
+    background-color: $secondary-100;
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}

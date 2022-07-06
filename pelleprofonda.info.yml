@@ -1,0 +1,20 @@
+name: 'pelleprofonda'
+type: theme
+description: 'A Bootstrap 5 base Drupal theme for UTE website.'
+core_version_requirement: '^8.9 || ^9'
+'base theme': bootstrap5
+libraries:
+  - pelleprofonda/global-styling
+  - pelleprofonda/global-scripts
+stylesheets-remove:
+  - '@bootstrap5/css/style.css'
+regions:
+  header: Header
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  breadcrumb: Breadcrumbs
+  content: 'Main content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer

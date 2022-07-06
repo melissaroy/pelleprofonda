@@ -1,0 +1,32 @@
+@use "sass:map";
+
+@mixin material-icons($icon: false) {
+  display: inline-block;
+  font-family: "Material Icons"; /* stylelint-disable font-family-no-missing-generic-family-keyword */
+  font-size: $font-size-base * 1.5;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* stylelint-disable */
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+  /* stylelint-enable */
+
+  @if $icon != false {
+    content: $icon;
+  }
+}

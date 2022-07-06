@@ -1,32 +1,62 @@
 {
-  "name": "twbs/bootstrap",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-  "keywords": [
-    "css",
-    "js",
-    "sass",
-    "mobile-first",
-    "responsive",
-    "front-end",
-    "framework",
-    "web"
-  ],
-  "homepage": "https://getbootstrap.com/",
+  "name": "melissaroy/pelleprofonda",
+  "description": "Pelle Profonda using Bootstrap 5 as sub theme.",
+  "type": "drupal-custom-theme",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "homepage": "https://github.com/melissaroy/pelleprofonda",
   "authors": [
     {
-      "name": "Mark Otto",
-      "email": "markdotto@gmail.com"
-    },
-    {
-      "name": "Jacob Thornton",
-      "email": "jacobthornton@gmail.com"
+      "name": "Melissa",
+      "email": "mroy@coldfrontlabs.ca"
     }
   ],
-  "support": {
-    "issues": "https://github.com/twbs/bootstrap/issues"
-  },
-  "license": "MIT",
-  "replace": {
-    "twitter/bootstrap": "self.version"
+
+  "repositories": {
+      "0": {
+        "type": "composer",
+        "url": "https://packages.drupal.org/8"
+      },
+      "1": {
+        "type": "composer",
+        "url": "https://asset-packagist.org"
+      },
+      "dropfort/dropfort_module_build": {
+        "type": "git",
+        "url": "git@git.dropfort.com:dropfort/dropfort_module_build.git"
+      }
+    },
+    "require-dev": {
+      "composer/composer": "^2.0",
+      "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+      "dropfort/dropfort_module_build": "^2.0",
+      "drupal/coder": "^8.3",
+      "drupal/core-composer-scaffold": "~9.0",
+      "phpcompatibility/php-compatibility": "*"
+    },
+    "config": {
+      "bin-dir": "bin/",
+      "sort-packages": true,
+      "allow-plugins": {
+        "dealerdirect/phpcodesniffer-composer-installer": true,
+        "drupal/core-composer-scaffold": true
+      }
+    },
+    "scripts": {},
+    "extra": {
+      "drupal-scaffold": {
+        "gitignore": false,
+        "allowed-packages": [
+          "dropfort/dropfort_module_build"
+        ],
+        "file-mapping": {
+        "[project-root]/.eslintrc.js": false
+      },
+      "initial": {
+        ".editorconfig": "../.editorconfig",
+        ".gitattributes": "../.gitattributes"
+      }
+    }
   }
 }
+
